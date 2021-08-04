@@ -1,17 +1,82 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+//Adding CSS
+import './index.css'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+/*Capitalize firstletter so react knows its a component*/
+//Statless functional component => dumb component
+//Always return JSX
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//JSX Rules
+//return single element
+//div / section / article or Fragment <React.Fragment> or <> remember to close them
+//use camelCase for html attribute
+//className instead of class
+//close every element even ones that normally dont have a closing tag eg <img/>
+//formatting return use parenthisis ()
+
+// function Greeting() {
+//   return (
+//   <div>
+//     <h2>Hello People</h2>
+//     <ul>
+//       <li>
+//         {/* <a href='#'>Hello World</a> */}
+//       </li>
+//     </ul>
+//   </div>
+//   );
+// }
+
+//Nested Components, React Tools
+
+// function Greeting(){
+//   return (
+//     <div>
+//       <Greet />
+//       <Question/>
+//     </div>
+//   );
+// }
+
+// //Explicit using arrow functions
+// const Greet = () => {
+//   return <h1>Hello John</h1>
+// }
+
+// //Implicit using arrow functions
+// const Question = () => <p>Is your second name wick?</p>
+
+
+//Mini Book Project
+
+function BookList(){
+  return(
+    <section className="booklist">
+      <Book/>
+      <Book/>
+      <Book/>
+      <Book/>
+      <Book/>
+    </section>
+  );
+}
+
+const Book = () => {
+  return(
+    <div className="book">
+      <BookImage/>
+      <Title/>
+      <Author/>
+    </div>
+  );
+}
+
+const BookImage = () => {
+  return <img src='https://m.media-amazon.com/images/I/81cntt8WF2L._AC_UL320_.jpg' alt='the law of seduction'/>
+}
+
+const Author = () => <h1>Sylvia Quinn</h1>;
+const Title = () => <h2>The Law of Seduction</h2>
+
+ReactDom.render( <BookList/> , document.getElementById('root'))
