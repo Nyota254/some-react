@@ -34,3 +34,9 @@ body {
 .book h2 {
   margin-top: 0.5rem;
 }
+
+.book h1 {
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  color: blue;
+}

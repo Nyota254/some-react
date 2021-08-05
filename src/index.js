@@ -3,6 +3,13 @@ import ReactDom from 'react-dom';
 //Adding CSS
 import './index.css'
 
+//Importing named export => Name has to be exactly
+import {books} from './books';
+
+//Importing default you can name it anything
+import Book from './book'
+
+
 /*Capitalize firstletter so react knows its a component*/
 //Statless functional component => dumb component
 //Always return JSX
@@ -49,34 +56,63 @@ import './index.css'
 
 
 //Mini Book Project
+//JSX Javascript
+//Setup Vars
+// const book1 = {
+//   author : 'Sylvia Quinn',
+//   title : 'The Law of seduction',
+//   image : 'https://m.media-amazon.com/images/I/81cntt8WF2L._AC_UL320_.jpg',
+// }
+
+// const book2 = {
+//   author : 'Tiffany Haddish',
+//   title : 'The Last Black Unicorn',
+//   image : 'https://m.media-amazon.com/images/I/A1hG8MsdzlL._AC_UL320_.jpg',
+// }
+
+// function BookList(){
+//   return(
+//     <section className="booklist">
+//       <Book 
+//         author={book1.author} 
+//         image={book1.image} 
+//         title={book1.title}
+//       >
+//         <p>
+//           Lorem Ipsum doloak dajk jauiw jahs
+//         </p>
+//       </Book>
+//       <Book author={book2.author} image={book2.image} title={book2.title}/>
+//     </section>
+//   );
+// }
+
+// const Book = (props) => {
+//   const {image,title,author,children} = props;
+//   return(
+//     <div className="book">
+//       <img src={image} alt={props.title}/>
+//       <h2>{title}</h2>
+//       <h1>{author.toUpperCase()}</h1>
+//       {children}
+//     </div>
+//   );
+// }
+
+//Simple List
+//Proper List
 
 function BookList(){
   return(
     <section className="booklist">
-      <Book/>
-      <Book/>
-      <Book/>
-      <Book/>
-      <Book/>
+      <h1>
+        {books.map((book)=>{
+          return <Book key={book.id} book={book}/>
+        })}
+      </h1>
     </section>
   );
 }
 
-const Book = () => {
-  return(
-    <div className="book">
-      <BookImage/>
-      <Title/>
-      <Author/>
-    </div>
-  );
-}
-
-const BookImage = () => {
-  return <img src='https://m.media-amazon.com/images/I/81cntt8WF2L._AC_UL320_.jpg' alt='the law of seduction'/>
-}
-
-const Author = () => <h1>Sylvia Quinn</h1>;
-const Title = () => <h2>The Law of Seduction</h2>
 
 ReactDom.render( <BookList/> , document.getElementById('root'))
